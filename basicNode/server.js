@@ -36,6 +36,7 @@ app.get('/products',(req, res)=>{
 // d) in api's headers
 // e) in api's cookies
 
+// example--> data send using api from frontend in api's body
 app.post('/register', (req, res)=>{
     console.log(req.body);
     res.json({msg:"data recieved"})

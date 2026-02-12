@@ -50,6 +50,7 @@ app.post('/register', (req, res)=>{
     res.json({msg:"data recieved"})
 })
 
+
 app.post('/addProducts', (req, res)=>{
     console.log(req.body);
     res.json({msg:"data recieved"})

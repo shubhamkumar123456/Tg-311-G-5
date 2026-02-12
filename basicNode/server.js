@@ -1,9 +1,17 @@
 import express from 'express';
 const app = express();
 const port = 8090;
+import cors from 'cors'
 
 
-// what is middleware -->
+// what is middleware --> middleware are functions, that have the access of requesting to an object , responsding to an object , they can also modify the request and response and can be used in between  the routes. it take a callback function with three arguments request , response , and next.  
+
+// app.use((req, res ,next)=>{
+//     console.log("hello")
+//     next()
+// })
+
+app.use(cors())
 app.use(express.json())   // parse the data in object form
 
 // request method --> 
@@ -49,3 +57,6 @@ app.post('/register', (req, res)=>{
 app.listen(port,()=>{
     console.log('server is running')
 })
+
+
+// https://github.com/shubhamkumar123456/Tg-311-G-5.git

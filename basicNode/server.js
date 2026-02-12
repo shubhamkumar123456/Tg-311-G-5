@@ -3,8 +3,9 @@ const app = express();
 const port = 8090;
 
 
-
+// what is middleware -->
 app.use(express.json())   // parse the data in object form
+
 // request method --> 
 // get method --> getdata from server use get method
 // post method --> send data on server from frontend

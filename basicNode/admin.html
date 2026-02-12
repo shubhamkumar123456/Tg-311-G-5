@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="name"  type="text" placeholder="enter product name">
+    <input id="price" type="number" placeholder="enter price">
+    <input id="quantity" type="number" placeholder="enter quantity">
+    <button onclick="xyz()">submit</button>
+
+    <script>
+
+        // 
+        let nameTag = document.getElementById('name')
+        let priceTag = document.getElementById('price')
+        let quantityTag = document.getElementById('quantity')
+
+      
+
+        async function xyz(){
+            // console.log("hello")
+            let obj = {
+                productName:nameTag.value,
+                productPrice:priceTag.value,
+                productQuantity:quantityTag.value
+            }
+
+            console.log(obj)
+
+            let res =await fetch('http://localhost:8090/addProducts',{
+                method:"POST",
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(obj)
+            })
+
+            let data = await res.json();
+            console.log(data)
+        }
+    </script>
+</body>
+</html>

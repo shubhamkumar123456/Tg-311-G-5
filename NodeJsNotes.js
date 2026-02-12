@@ -1,6 +1,6 @@
-// Javascript -->  Javascript is a scripting language used to add functionality and logics in your weboage
+// Javascript -->  Javascript is a programming language used to add functionality and logics in your webpage
 
-// in default js runs scynchronously but if any time taking function comes it starts behaving asyncronouly 
+// in default js runs scynchronously but if any time taking function comes it starts behaving asyncronously 
 
 // With the help of javascript you can create dynamic web pages
 
@@ -39,11 +39,11 @@
 // create package.json file in node js --> npm init -y
 
 // destructuring --> 
-let obj = {
-    name:"one",
-    email:"one@gmail.com",
-    password:"123123"
-}
+// let obj = {
+//     name:"one",
+//     email:"one@gmail.com",
+//     password:"123123"
+// }
 
 // let a = obj.name
 // let b = obj.email
@@ -64,4 +64,8 @@ let obj = {
 // core module --> these are pre installed in node js for example --> http , fs , __dirname ,
 
 // local module --> these are created by user 
+
 // third party module --> used to install from outside of node js for example --> express , nodemon , cors , jwt 
+
+// https://github.com/shubhamkumar123456/Tg-311-G-5.git
+

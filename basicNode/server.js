@@ -41,6 +41,7 @@ app.get('/products',(req, res)=>{
 // a) in api's body
 // b) in api's params
 // c) in api's query
+
 // d) in api's headers
 // e) in api's cookies
 
@@ -50,12 +51,27 @@ app.post('/register', (req, res)=>{
     res.json({msg:"data recieved"})
 })
 
-
+// example --> data send through api body
 app.post('/addProducts', (req, res)=>{
     console.log(req.body);
     res.json({msg:"data recieved"})
 })
 
+// example --> data send through params --> using (  /:name  )
+// example --> localhost:8090/trial/hello/10
+app.get('/trial/:x/:y' ,(req, res)=>{
+    console.log(req.params)
+    res.json({msg:'data recieved'})
+})
+
+
+// example --> data send in query using ? mark
+// example--> localhost:8090/users?x=hello&y=10&z=hii
+app.get('/users' ,(req,res)=>{
+    console.log(req.query)  // { x: 'hello', y: '10', z: 'hii' }
+    console.log(req.query.x) //hello
+    res.json({msg:"all good"})
+})
 
 
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form action="">
+     <label for="male">Male</label>
+    <input id="male" name="s" type="radio">
+
+     <label for="female">Female</label>
+    <input id="female" name="s" type="radio">
+
+    <label for="abc" style="display: block; width: max-content; background-color: orange; color: black; border-radius: 10px; padding: 10px;">
+        upload Image
+    </label>
+
+    <input onchange="handleChanger(event)" hidden id="abc" type="file">
+   </form>
+
+   <script>
+
+    let bodyTag = document.querySelector('body')
+    console.log(bodyTag)
+
+    function handleChanger(e){
+        // console.log(e)
+        // console.log(e.target)  //tag
+        console.log(e.target.files)  //files
+        console.log(e.target.files[0])  //files
+        let imageTag = document.createElement('img')  // <img/>
+        // imageTag.src = e.target.files[0]
+        imageTag.src = URL.createObjectURL(e.target.files[0])
+        imageTag.style.width = "200px"
+        bodyTag.append(imageTag)
+        console.log(imageTag)
+    }
+   </script>
+</body>
+</html>

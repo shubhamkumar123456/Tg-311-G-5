@@ -29,7 +29,13 @@ const userSchema = new mongoose.Schema({
     coverPic:{
         type:String,
         default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDApJo83lWctENTMNPOuJ9fUdHXaGCXgUgVg&s"
-    }
+    },
+    isSubscribed:{
+        type:Boolean,
+        default:false
+    },
+    
+    
 },{timestamps:true})
 
 // module.exports = mongoose.model('collectionName'  , structureToFollow(rules to follow) )

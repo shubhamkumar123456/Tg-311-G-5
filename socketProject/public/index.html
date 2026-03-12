@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        input{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+            <input id="nameInput" type="text" placeholder="enter your name">
+            <button onclick="handleSubmit()">Submit</button>
+    </div>
+
+    <script>
+        let nameInput = document.getElementById('nameInput');
+        console.log(nameInput)
+
+        function handleSubmit(){
+            let userName = nameInput.value;
+            // console.log(userName);
+            if(userName===''){
+                return alert('enter a name');
+            }
+            localStorage.setItem('socketApp' ,userName );
+            window.location = 'chat.html'
+        }
+    </script>
+</body>
+</html>

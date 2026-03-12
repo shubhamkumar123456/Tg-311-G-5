@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+        .container{
+            width: 70%;
+            height: 70vh;
+            position: relative;
+            border: 2px solid;
+        }
+        .bottom{
+            position: absolute;
+            bottom: 0;
+            background-color: black;
+            color: white;
+            width: 100%;
+            display: flex;
+        }
+        .bottom input{
+            width: 100%;
+        }
+        .msgBox{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chat App</h1>
+        <div class="msgBox">
+
+        </div>
+        <div class="bottom">
+            <input id="chatInput" type="text" placeholder="enter a message">
+            <button onclick="handleSend()">Send</button>
+        </div>
+    </div>
+
+    <!-- import socket library -->
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    
+    <script>
+        // connect client socket with backend socket
+        let socket = io('http://localhost:3000');
+
+        let userName = localStorage.getItem('socketApp')
+        socket.emit('join',userName);
+
+        let msgBox = document.querySelector('.msgBox')
+
+        let chatInput = document.getElementById('chatInput')
+
+        socket.on('sendMessage',({type, msg})=>{
+            let p = document.createElement('p');
+            p.innerHTML = `<b>${type} : ${msg}</b>`
+            msgBox.append(p);
+        })
+
+
+        function handleSend(){
+            let inputvalue = chatInput.value
+            socket.emit('send',inputvalue);
+        }
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ const app = express()
 const port = 8090;
 const connection = require('./config/db')  //  function
 connection()
-
+const cors = require('cors')
 const userRouter = require('./routes/userRoutes')
 const postRouter = require('./routes/postRoutes')
 
@@ -11,9 +11,9 @@ const postRouter = require('./routes/postRoutes')
 //middleware are functions that have the access of requesting to an object responding to an object they ccan also modify the request and response. 
 
 // 
-
+app.use(cors())
 app.use((req,res,next)=>{
-    console.log("hello i am middleware")
+    console.log("hello i am middleware");
     next()
 })
 

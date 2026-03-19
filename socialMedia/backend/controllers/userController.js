@@ -12,12 +12,12 @@ const createUser = async(req, res)=>{
     let existingUser =await userCollection.findOne({email})
 
     if(existingUser){
-        return res.json({msg:"user already registered"})
+        return res.status(401).json({msg:"user already registered"})
     }
     else{
         let hashPassword = await bcrypt.hash(password , salt)
     let data = await userCollection.insertOne({name:name, email, password:hashPassword})
-    res.json({msg:"user registered successfully"})
+    res.status(201).json({msg:"user registered successfully"})
     }  
 }
 
@@ -32,7 +32,7 @@ const loginUser = async(req,res)=>{
         if(comparePass){
             // let token = await jwt.sign({} , secret)
             let token = await jwt.sign({_id:user._id} , jwt_secret);
-            return res.json({msg:"user log in successfull", token});
+            return res.status(200).json({msg:"user log in successfull", token});
         }
         else{
             return res.status(401).json({msg:"wrong password"})

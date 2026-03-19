@@ -1,10 +1,14 @@
 import React, { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
 
-    let nameRef = useRef()    //{current:undefined}
-    let emailRef = useRef() 
-    let passwordRef = useRef() 
+    let nameRef = useRef();    //{current:undefined}
+    let emailRef = useRef();
+    let passwordRef = useRef();
+    let navigate = useNavigate();
+
+
 
    async function handleSubmit(e){
         e.preventDefault();
@@ -26,6 +30,15 @@ const Signup = () => {
 
         let data = await res.json();
         console.log(data)
+
+        if(res.status==200 || res.status==201){
+                alert(data.msg)
+                navigate('/login')
+        }
+        else{
+            alert(data.msg)
+        }
+          //{msg:user registered successfully} 
     }
 
   return (

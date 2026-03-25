@@ -12,10 +12,10 @@ const postRouter = require('./routes/postRoutes')
 
 // 
 app.use(cors())
-app.use((req,res,next)=>{
-    console.log("hello i am middleware");
-    next()
-})
+// app.use((req,res,next)=>{
+//     console.log("hello i am middleware");
+//     next()
+// })
 
 app.use(express.json())  //parse the data
 app.get('/' , (req,res)=>{

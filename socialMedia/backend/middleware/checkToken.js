@@ -8,7 +8,7 @@ const verifyToken = async(req,res,next)=>{
         req.user = verify._id
         next()
     } catch (error) {
-        return res.statu(401).json({msg:"unauthorized"})
+        return res.status(401).json({msg:"unauthorized"})
     }
 
 }

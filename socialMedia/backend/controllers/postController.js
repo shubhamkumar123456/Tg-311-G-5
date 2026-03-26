@@ -15,8 +15,11 @@ const createPost = async(req, res)=>{
 }
 
 const getPosts = async(req, res)=>{
-    res.send("get post is running");
+   let posts  = await postCollection.find().populate({path:'userId', select:'name profilePic'});
+    res.status(200).json({posts})
 }
+
+
 const updatePost = async(req, res)=>{
     res.send("update post is running")
 }

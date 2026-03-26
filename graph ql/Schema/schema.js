@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const {GraphQlObjectType,GraphQLSchema, GraphQLString,GraphQLList} = graphql;
+const {GraphQLObjectType,GraphQLSchema, GraphQLString,GraphQLList} = graphql;
 
 const UserCollection = require('../models/userModel')
 const bcrypt = require('bcryptjs')
@@ -7,27 +7,27 @@ const jwt = require('jsonwebtoken');
 const jwtSecret = 'abc@123'
 
 
-const UserType = new GraphQlObjectType({
+const UserType = new GraphQLObjectType({
     name:'User',
-    fields:{
+    fields:()=>({
         id:{type:GraphQLString},
         name:{type:GraphQLString},
         email:{type:GraphQLString},
         password:{type:GraphQLString},
         bio:{type:GraphQLString},
         address:{type:GraphQLString},
-    }
+    })
 })
 
-const authType = new GraphQlObjectType({
+const authType = new GraphQLObjectType({
     name:"Auth",
     fields:{
         token:{type:GraphQLString},
-        User:{type:UserType}
+        user:{type:UserType}
     }
 })
 
-const Mutation = new GraphQlObjectType({
+const Mutation = new GraphQLObjectType({
         name:'Mutation',
         fields:{
             register:{
@@ -38,7 +38,7 @@ const Mutation = new GraphQlObjectType({
                     password:{type:GraphQLString},
                 },
                 async resolve(parent ,args, context){
-                const {name, email, password} = agrs;
+                const {name, email, password} = args;
 
                 let existingUser = await UserCollection.findOne({email});
 
@@ -80,17 +80,12 @@ const Mutation = new GraphQlObjectType({
                 }
             },
 
-            updateUser:{
-
-            },
-            deleteUser:{
-
-            }
+           
             
         }
 })
 
-const Query = new GraphQlObjectType({
+const Query = new GraphQLObjectType({
         name:'RootQuery',
         fields:{
             home:{

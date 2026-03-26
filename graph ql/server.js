@@ -4,12 +4,12 @@ const port = 8090;
 const {graphqlHTTP} = require('express-graphql');
 
 const connection = require('./config/db');
-const { Schema } = require('mongoose');
+const schema = require('./Schema/schema');
 const Auth = require('./middleware/Auth');
 connection()
 
 app.use('/graphql',graphqlHTTP((req)=>({
-    Schema,
+    schema:schema,
     graphiql:true,
     context:{
         user:Auth(req)

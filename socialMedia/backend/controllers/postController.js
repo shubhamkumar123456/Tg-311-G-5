@@ -15,7 +15,7 @@ const createPost = async(req, res)=>{
 }
 
 const getPosts = async(req, res)=>{
-   let posts  = await postCollection.find().populate({path:'userId', select:'name profilePic'});
+   let posts  = await postCollection.find().sort({createdAt:-1}).populate({path:'userId', select:'name profilePic'});
     res.status(200).json({posts})
 }
 

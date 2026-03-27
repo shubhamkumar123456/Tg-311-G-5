@@ -4,7 +4,8 @@ import { BsEmojiLaughing } from "react-icons/bs";
 import EmojiPicker from 'emoji-picker-react';
 import { toast } from 'react-toastify';
 
-const PostComponent = () => {
+const PostComponent = (props) => {
+    console.log(props)
     const [image, setimage] = useState('');
     const [show, setshow] = useState(false);
 
@@ -43,6 +44,7 @@ const PostComponent = () => {
             toast.success(data.msg);
             titleRef.current.value = '';
             setimage('');
+            props.getAllProducts()
         } else {
             toast.error(data.msg);
         }

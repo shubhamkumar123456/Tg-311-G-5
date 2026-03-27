@@ -25,6 +25,8 @@ app.get('/' , (req,res)=>{
 app.use('/users', userRouter);
 app.use('/posts', postRouter);
 
+app.use('/uploads', express.static('uploads'))
+
 // example --> http://localhost:8090/users/signup --> createUser()
 // example --> http://localhost:8090/users/login --> loginUser()
 

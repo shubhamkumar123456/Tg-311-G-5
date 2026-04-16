@@ -1,35 +1,39 @@
-const express = require('express');
-const app = express()
+const express = require("express");
+const app = express();
 const port = 8090;
-const connection = require('./config/db')  //  function
-connection()
-const cors = require('cors')
-const userRouter = require('./routes/userRoutes')
-const postRouter = require('./routes/postRoutes')
+const connection = require("./config/db"); //  function
+connection();
+const cors = require("cors");
+const userRouter = require("./routes/userRoutes");
+const postRouter = require("./routes/postRoutes");
+const dotenv = require("dotenv");
+dotenv.config();
 
+console.log(process.env.NODE_MAILER);
 
-//middleware are functions that have the access of requesting to an object responding to an object they ccan also modify the request and response. 
+//middleware are functions that have the access of requesting to an object responding to an object they ccan also modify the request and response.
 
-// 
-app.use(cors())
+//
+app.set('view engine', 'ejs')
+app.use(cors());
 // app.use((req,res,next)=>{
 //     console.log("hello i am middleware");
 //     next()
 // })
 
-app.use(express.json())  //parse the data
-app.get('/' , (req,res)=>{
-    res.send('welcome page')
-})
+app.use(express.json()); //parse the data
+app.get("/", (req, res) => {
+  res.send("welcome page");
+});
 
-app.use('/users', userRouter);
-app.use('/posts', postRouter);
+app.use("/users", userRouter);
+app.use("/posts", postRouter);
 
-app.use('/uploads', express.static('uploads'))
+app.use("/uploads", express.static("uploads"));
 
 // example --> http://localhost:8090/users/signup --> createUser()
 // example --> http://localhost:8090/users/login --> loginUser()
 
-app.listen(port , ()=>{
-    console.log(`server is running on http://localhost:${port}`)
-})
+app.listen(port, () => {
+  console.log(`server is running on http://localhost:${port}`);
+});

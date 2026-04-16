@@ -38,5 +38,12 @@ const userSchema = new mongoose.Schema({
     
 },{timestamps:true})
 
+
+userSchema.add({
+    resetToken:{
+        type:String,
+        default:''
+    }
+})
 // module.exports = mongoose.model('collectionName'  , structureToFollow(rules to follow) )
 module.exports = mongoose.model('users',userSchema);

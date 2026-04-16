@@ -72,7 +72,9 @@
 
 // ( 01-04-2026
 // Harsh(today vgood followed) , Himani(followed today) ,Jaspreet(folowed today) --> G6 (Travel web)--> bad--> done
-// Shivam , Sneha , mandeep(today) --> G6 -->RoomRender --> Bad --> done
+
+// Shivam , Sneha , mandeep(today), ishika walia(absent) --> G6 -->RoomRender --> Bad --> done
+
 // JoeyDeep , Mridul SHarma , sanket singla(today v.bad) --> G6 -->Ecom (in sheet it is cloud based job portal) --> done --> 
 
 // HirdeshSIngh , Kaushik,  (gurkirat ,asmit --> today v.bad) --> G6 LinkedinClone -->bad --> done

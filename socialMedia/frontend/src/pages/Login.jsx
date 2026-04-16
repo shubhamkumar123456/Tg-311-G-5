@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
+
 
 const Login = () => {
 
@@ -54,6 +55,7 @@ const Login = () => {
 
             <label htmlFor="">Password</label>
             <input ref={passwordRef} className='border px-2 py-1 rounded' type="password" placeholder='enter your password' />
+            <Link to={'/forgetPassword'} className = "text-blue-500">forget password?</Link>
 
             <button onClick={handleSubmit} className='bg-black text-white hover:bg-[#211e1e] p-4'>Login</button>
         </form>

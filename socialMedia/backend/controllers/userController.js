@@ -129,6 +129,20 @@ const getResetToken = async(req,res)=>{
         res.render('forgetpassword',{token})
 }
 
+const updatePassword = async(req, res)=>{
+  const {password} = req.body;
+  const {token} = req.params;
+
+  // console.log(password , token)
+
+  let user = await userCollection.findOne({resetToken:token}) //{_id, name, email ...}
+  let hashPassword = await bcrypt.hash(password, salt);
+  user.password = hashPassword
+  user.resetToken = ''
+  await user.save()
+  res.status(200).json({msg:"password updated successfully"});
+}
+
 module.exports = {
   createUser,
   loginUser,
@@ -136,5 +150,6 @@ module.exports = {
   deleteUser,
   dummyUpload,
   forgetPassword,
-  getResetToken
+  getResetToken,
+  updatePassword
 };

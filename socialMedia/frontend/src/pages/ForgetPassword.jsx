@@ -11,7 +11,7 @@ const ForgetPassword = () => {
 
         console.log(obj)
 
-        let res = await fetch('http://localhost:8090/users/forgetpassword',{
+        let res = await fetch('https://socialmediag5.onrender.com/users/forgetpassword',{
             method:"post",
             headers:{
                 'content-type':'application/json'

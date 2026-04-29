@@ -22,7 +22,7 @@ const Login = () => {
         }
         console.log(obj)
 
-        let res = await fetch('http://localhost:8090/users/login',{
+        let res = await fetch('https://socialmediag5.onrender.com/users/login',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

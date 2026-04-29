@@ -20,7 +20,7 @@ const Signup = () => {
         }
         console.log(obj)
 
-        let res = await fetch('http://localhost:8090/users/signup',{
+        let res = await fetch('https://socialmediag5.onrender.com/users/signup',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

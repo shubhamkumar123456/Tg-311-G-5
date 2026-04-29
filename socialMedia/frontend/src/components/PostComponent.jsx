@@ -30,7 +30,7 @@ const PostComponent = (props) => {
         formData.append('title', titleRef.current.value);
         formData.append('image', image);
 
-        let res = await fetch('http://localhost:8090/posts/create', {
+        let res = await fetch('https://socialmediag5.onrender.com/posts/create', {
             method: 'POST',
             headers: {
                 authorization: token

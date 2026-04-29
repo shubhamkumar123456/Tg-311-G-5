@@ -25,7 +25,7 @@ const Home = () => {
     const [AllPosts, setAllPosts] = useState([]);
 
    async function getAllProducts(){
-        let res = await fetch('http://localhost:8090/posts/allpost');
+        let res = await fetch('https://socialmediag5.onrender.com/posts/allpost');
         let data = await res.json();
         // console.log(data)
         console.log(data.posts)  //[{} , {} , { } , {} , {}]
